@@ -25,15 +25,16 @@ def karatsuba(x, y):
 
         return (10 ** n * t1 + B * (t2) + t3)
 
-# test
-pairs = [
-    (123, 952),
-    (6233467, 7623242),
-    (1212, 1264),
-    (9411, 5228),
-    (63, 91)
-]
+if __name__ == "__main__":
+    # test
+    pairs = [
+        (123, 952),
+        (6233467, 7623242),
+        (1212, 1264),
+        (9411, 5228),
+        (63, 91)
+    ]
 
-for pair in pairs:
-    p1, p2 = pair
-    print(karatsuba(p1, p2) == (p1 * p2))
+    for pair in pairs:
+        p1, p2 = pair
+        print(karatsuba(p1, p2) == (p1 * p2))

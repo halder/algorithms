@@ -56,8 +56,9 @@ def merge(left, right, asc=True):
 
     return merged
 
-# test
-print(merge_sort([5,2,6,1,7,3,9]))
-print(merge_sort([3,3,1,9,4,7,12,5,2]))
-print(merge_sort([3,3,1,9,4,7,12,5,2], asc=False))
-print(merge_sort([3,3,1,2,2,2,0,2,2,2,2]))
+if __name__ == "__main__":
+    # test
+    print(merge_sort([5,2,6,1,7,3,9]))
+    print(merge_sort([3,3,1,9,4,7,12,5,2]))
+    print(merge_sort([3,3,1,9,4,7,12,5,2], asc=False))
+    print(merge_sort([3,3,1,2,2,2,0,2,2,2,2]))

@@ -54,9 +54,10 @@ def strassen(X, Y):
 
     return result
 
-# test
-for _ in range(10):
-    X = np.random.randint(10, size=(8, 8))
-    Y = np.random.randint(10, size=(8, 8))
+if __name__ == "__main__":
+    # test
+    for _ in range(10):
+        X = np.random.randint(10, size=(8, 8))
+        Y = np.random.randint(10, size=(8, 8))
 
-    print(np.all((X @ Y) == strassen(X, Y).astype(int)))
+        print(np.all((X @ Y) == strassen(X, Y).astype(int)))
