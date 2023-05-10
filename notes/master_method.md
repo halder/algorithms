@@ -7,7 +7,7 @@ $$
 \end{equation}
 $$
 
-where $c$ = *constant* for all *sufficiently small* $n$.
+where $c$ is **constant** for all *sufficiently small* $n$.
 
 ## Non-base cases
 Outside the base case, the running time $T$ based on the size of the input $n$ is bounded by the following equation:
@@ -33,9 +33,9 @@ $$
 \begin{equation}
     T(n)=
     \begin{cases}
-        O(n^d\text{log}n),      & \text{if} & a = b^d   & \text{Case 1} \\
-        O(n^d)                  & \text{if} & a < b^d   & \text{Case 2} \\
-        O(n^{\text{log}_ba})    & \text{if} & a > b^d   & \text{Case 3}
+        O(n^d\text{log}n),      & \text{if} & a = b^d   & \text{(Case 1)} \\
+        O(n^d),                 & \text{if} & a < b^d   & \text{(Case 2)} \\
+        O(n^{\text{log}_ba}),   & \text{if} & a > b^d   & \text{(Case 3)}
     \end{cases}
 \end{equation}
 $$
