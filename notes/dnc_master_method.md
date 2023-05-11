@@ -1,4 +1,5 @@
-# Master Method for running time analysis of algorithms
+# Master Method
+Method for running time analysis of **divide and conquer** algorithms.
 
 ## Base case
 $$
