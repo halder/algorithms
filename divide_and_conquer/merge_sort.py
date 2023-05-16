@@ -58,7 +58,12 @@ def merge(left, right, asc=True):
 
 if __name__ == "__main__":
     # test
-    print(merge_sort([5,2,6,1,7,3,9]))
-    print(merge_sort([3,3,1,9,4,7,12,5,2]))
-    print(merge_sort([3,3,1,9,4,7,12,5,2], asc=False))
-    print(merge_sort([3,3,1,2,2,2,0,2,2,2,2]))
+    cases = (
+        ([5,2,6,1,7,3,9], True),
+        ([3,3,1,9,4,7,12,5,2], True),
+        ([3,3,1,9,4,7,12,5,2], False),
+        ([3,3,1,2,2,2,0,2,2,2,2], True)
+    )
+
+    for case in cases:
+        print(merge_sort(case[0], asc=case[1]) == sorted(case[0], reverse=(not case[1])))
