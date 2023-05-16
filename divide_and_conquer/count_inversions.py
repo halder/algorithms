@@ -1,4 +1,4 @@
-def count_inversions(input):
+def count_inversions(array):
     """
     Count inversions. Leverages merge sort algorithm.
 
@@ -7,18 +7,18 @@ def count_inversions(input):
     namely pairs (3, 2), (5, 2), (5, 4).
     """
     # base case
-    if len(input) == 1:
-        return input, 0
+    if len(array) == 1:
+        return array, 0
     
     else:
-        n = len(input)
-        left, right = input[:n//2], input[n//2:]
+        n = len(array)
+        left, right = array[:n//2], array[n//2:]
 
         left_tree, x = count_inversions(left)
         right_tree, y = count_inversions(right)
-        sorted_input, z = merge_and_count_inversions(left_tree, right_tree)
+        sorted_array, z = merge_and_count_inversions(left_tree, right_tree)
         
-        return sorted_input, x + y + z
+        return sorted_array, x + y + z
 
 
 def merge_and_count_inversions(left, right):

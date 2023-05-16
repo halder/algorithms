@@ -1,15 +1,15 @@
-def merge_sort(input, asc=True):
+def merge_sort(array, asc=True):
     """
     Merge sort algorithm.
     Sort list of integers in ascending (asc) or descending order
     in n*log(n) time complexity.
     """
     # base case
-    if len(input) < 2:
-        return input
+    if len(array) < 2:
+        return array
     
     else:
-        left, right = split(input)
+        left, right = split(array)
 
         left_tree = merge_sort(left, asc=asc)
         right_tree = merge_sort(right, asc=asc)
@@ -17,10 +17,10 @@ def merge_sort(input, asc=True):
         return merge(left_tree, right_tree, asc=asc)
 
 
-def split(input):
-    h = len(input) // 2
+def split(array):
+    h = len(array) // 2
 
-    return input[:h], input[h:]
+    return array[:h], array[h:]
 
 
 def merge(left, right, asc=True):
