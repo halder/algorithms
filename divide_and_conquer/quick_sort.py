@@ -1,3 +1,5 @@
+import random
+
 def quick_sort(array):
     """
     QuickSort algorithm.
@@ -28,9 +30,13 @@ def partition(array, p, q):
     Partition subroutine splits array into halves
     less than pivot and greater or equal to pivot.
     """
-    pivot = array[p]
-    i = p + 1
+    r = random.randint(p, q - 1)
+    pivot = array[r]
+
+    # move pivot to beginning of array
+    array[p], array[r] = pivot, array[p]
     
+    i = p + 1
     for j in range(i, q):
         if array[j] < pivot:
 
@@ -53,4 +59,4 @@ if __name__ == "__main__":
     )
 
     for case in cases:
-        print(quick_sort(case))
+        print(quick_sort(case) == sorted(case))
