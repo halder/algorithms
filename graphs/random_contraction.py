@@ -23,37 +23,36 @@ def random_contraction(graph):
 
         # absorb 'fuse' into super
         for edge in G[fuse]:
-            if edge != super:
-                G[super].append(edge)
+            G[super].append(edge)
+        
+        # remove self loops
+        super_edges = [node for node in G[super] if node not in (super, fuse)]
+        G[super] = super_edges.copy()
 
-        for node, edges in G.items():
+        for node in G[super]:
             if node != fuse:
-                # update old 'fuse' edge to new 'super' edge
-                if fuse in edges:
-                    edges = [super if edge == fuse else edge for edge in edges]
-                    G[node] = edges.copy()
-
-            # remove self loops
-            if node in edges:
-                G[node].remove(node)
+                edges = [super if edge == fuse else edge for edge in G[node].copy()]
+                G[node] = edges.copy()
 
         del G[fuse]
 
     return G
 
 
-def min_cut(graph):
+def min_cut(graph, runs=None):
     """
     Returns the minimum cut (A, B) of a graph with probability 1/n,
     where n = number of nodes in the graph.
+
+    Set `runs` manually for large graphs since T will grow large quickly.
     """
-    T = len(graph) ** 2 * ln(len(graph))
+    runs = runs if runs else int(len(graph) ** 2 * ln(len(graph))) # T
 
     min_cut = None
-    for _ in range(int(T)):
+    for _ in range(runs):
         cut = len(list(random_contraction(graph).values())[0])
 
-        if cut < min_cut or min_cut is None:
+        if min_cut is None or cut < min_cut:
             min_cut = cut
 
     return min_cut
@@ -67,4 +66,5 @@ if __name__ == "__main__":
         3: [0, 1, 2]
     }
 
+    print(random_contraction(graph))
     print(min_cut(graph))
